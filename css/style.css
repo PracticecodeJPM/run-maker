@@ -1,5 +1,5 @@
 .pep {
-    height:40px;
+    height:20px;
     width:100%;
     max-width: 100px;
     border-style:solid;
@@ -8,13 +8,13 @@
     margin-bottom:5px;
     z-index: 10;
     position: relative;
-    padding: 5px;
+    padding: 1px;
     background: #69D2E7;
     opacity: .9;
 }
 
 .dropzone {
-    height:50px;
+    height:40px;
     width:100%;
     max-width: 200px;
     border-style:solid;
@@ -23,6 +23,22 @@
     margin-bottom:5px;
     z-index: -10;
     background: #E0E4CC;
+}
+.activity-panel {
+  max-width: 400px;
+}
+.activity-panel .panel-body {
+  padding-right: 0px;
+}
+.left-condensed {
+  float: left;
+  margin: 15px 0px;
+  margin-right: 10px;
+}
+.left {
+  float: left;
+  width: 50%;
+  margin: 15px 0px;
 }
 
 .pep-dpa {
@@ -33,18 +49,12 @@
   background: #A7DBD8;
 }
 
-.green {
-    border-color:green;
+.form-panel {
+  max-width: 420px;
 }
-.blue {
-    border-color:blue;
-}
-.orange {
-    border-color:orange;
-}
-.black {
-    border-color:black;
-}
-.active {
-    border-color:blue;
+
+@media only screen and (max-width : 992px) {
+    .form-panel {
+      margin: auto;
+    }
 }

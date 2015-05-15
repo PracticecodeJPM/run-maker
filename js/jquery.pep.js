@@ -412,6 +412,10 @@
             this.$el.removeClass('pep-start')
                     .addClass('pep-ease');
 
+            if ( this.options.revert && (this.options.revertAfter === 'stop' || !this.options.shouldEase) && ( this.options.revertIf && this.options.revertIf.call(this) ) ) {
+              this.revert();
+            }
+
             // Calculate our drop regions
             if ( this.options.droppable ) {
               this.calculateActiveDropRegions();
@@ -429,9 +433,7 @@
               this.removeActiveClass();
             }
 
-            if ( this.options.revert && (this.options.revertAfter === 'stop' || !this.options.shouldEase) && ( this.options.revertIf && this.options.revertIf.call(this) ) ) {
-              this.revert();
-            }
+
 
             // this must be set to false after
             // the user's stop event is called, so the dev
