@@ -53,17 +53,19 @@
   max-width: 420px;
 }
 
-
-
-.jumbotron {
-  background: url("http://photo.foter.com/photos/m/31/run-away-1.jpg") no-repeat center center;
-  text-shadow:  1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
-  color: white;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.form-well {
+  margin-top:15px;
 }
+.table-center {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-center td {
+  min-width: 70px;
+}
+
 
 #errorMessage {
   display:none;

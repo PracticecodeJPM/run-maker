@@ -21,6 +21,9 @@
 
 $(document).ready(function(){
 
+  // make table responsive
+  $('#tableSchedule').stacktable();
+
   // load datepicker from pickadate lib
   $('#datepicker').pickadate();
 
@@ -109,7 +112,7 @@ $(document).ready(function(){
       console.log(schedule);
       var rendered = template({schedule: schedule});
       $('#target').html(rendered);
-      $('#collapsePanel').collapse('hide');
+      $('.nav-tabs a[href="#scheduleTab"]').tab('show');
       positionCounter = 1; // reset week counter
     }
   });
@@ -145,7 +148,7 @@ $(document).ready(function(){
       var trainingDate = day.format("MMM Do");
       // check for race date or the two days before race date
       if (day.isSame(raceDate)) {
-        var trainingActivity = "Race Day";
+        var trainingActivity = "26.2";
       } else if (day.isSame(dayBeforeRace) || day.isSame(twoDaysBeforeRace)){
         var trainingActivity = "rest";
       } else {
@@ -167,7 +170,7 @@ $(document).ready(function(){
             var trainingActivity = "rest";
             break;
           case "Cross Train":
-            var trainingActivity = "cross-train";
+            var trainingActivity = "cross";
             break;
           case "Long Run":
             var trainingActivity = runs.long.next().value.toString() + " miles";
