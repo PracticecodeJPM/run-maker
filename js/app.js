@@ -102,14 +102,16 @@ $(document).ready(function(){
 
   $('#activityForm').submit(function( event ) {
     event.preventDefault();
-    var trainingArray = $( this ).serializeArray();
-    var dayToActivity = matchDayToActivity(trainingArray);
-    var schedule = printSchedule(dayToActivity);
-    console.log(schedule);
-    var rendered = template({schedule: schedule});
-    $('#target').html(rendered);
-    $('#collapsePanel').collapse('hide');
-    positionCounter = 1; // reset week counter
+    if (validateForm()) {
+      var trainingArray = $( this ).serializeArray();
+      var dayToActivity = matchDayToActivity(trainingArray);
+      var schedule = printSchedule(dayToActivity);
+      console.log(schedule);
+      var rendered = template({schedule: schedule});
+      $('#target').html(rendered);
+      $('#collapsePanel').collapse('hide');
+      positionCounter = 1; // reset week counter
+    }
   });
 
   function printSchedule(dayToActivity) {
@@ -198,6 +200,35 @@ $(document).ready(function(){
                  {done: true};
          }
       }
+  }
+
+  function validateForm() {
+    var mo = $('#Monday').val();
+    var tu = $('#Tuesday').val();
+    var we = $('#Wednesday').val();
+    var th = $('#Thursday').val();
+    var fr = $('#Friday').val();
+    var sa = $('#Saturday').val();
+    var su = $('#Sunday').val();
+    var date = $('#datepicker').val();
+
+    if (!mo || !tu || !we || !th || !fr || !sa || !su) {
+      errorMessage("Make sure all days are filled in!");
+      return false;
+    } else if (!date) {
+      errorMessage("Make sure your date is filled in!");
+      return false;
+    }
+    return true;
+  }
+
+  function errorMessage(text) {
+    $('#errorMessage').html(text);
+    $('#errorMessage').slideDown(function() {
+        setTimeout(function() {
+            $('#errorMessage').slideUp();
+        }, 2000);
+    });
   }
 
   function Training(date, activity) {
