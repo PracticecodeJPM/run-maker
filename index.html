@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="pickadate/themes/default.css">
     <link rel="stylesheet" href="pickadate/themes/default.date.css">
+    <link rel="stylesheet" href="/css/footable.core.min.css">
     <link rel="stylesheet" href="css/style.css" charset="utf-8">
     <link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css" />
-    <link rel="stylesheet" href="/css/stacktable.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -113,18 +113,20 @@
       </div>
 
       <script id="template" type="x-tmpl-mustache">
-      <table id="scheduleTable" class="table-bordered table-striped table-responsive table-center">
-               <tr class="danger">
-                   <th>Week</th>
-                   <th>Mon</th>
-                   <th>Tues</th>
-                   <th>Wed</th>
-                   <th>Thurs</th>
-                   <th>Fri</th>
-                   <th>Sat</th>
-                   <th>Sun</th>
-               </tr>
-               <tb>
+      <table id="scheduleTable" class="footable table table-bordered table-striped table-responsive table-center">
+          <thead>
+             <tr>
+               <th>Week</th>
+               <th data-hide="phone">Mon</th>
+               <th data-hide="phone">Tues</th>
+               <th data-hide="phone">Wed</th>
+               <th data-hide="phone">Thurs</th>
+               <th data-hide="phone">Fri</th>
+               <th data-hide="phone">Sat</th>
+               <th data-hide="phone">Sun</th>
+             </tr>
+           </thead>
+           <tb>
       {{#everyNth schedule 7}}
         {{#if isModZeroNotFirst}}
           </tr>
@@ -150,7 +152,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
-    <script src="js/stacktable.js"></script>
+    <script src="js/footable.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

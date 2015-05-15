@@ -21,9 +21,6 @@
 
 $(document).ready(function(){
 
-  // make table responsive
-  $('#tableSchedule').stacktable();
-
   // load datepicker from pickadate lib
   $('#datepicker').pickadate();
 
@@ -112,7 +109,8 @@ $(document).ready(function(){
       console.log(schedule);
       var rendered = template({schedule: schedule});
       $('#target').html(rendered);
-      $('.nav-tabs a[href="#scheduleTab"]').tab('show');
+      $('.nav-tabs a[href="#scheduleTab"]').tab('show'); // show schedule
+      $('#scheduleTable').footable(); // make table responsive
       positionCounter = 1; // reset week counter
     }
   });
