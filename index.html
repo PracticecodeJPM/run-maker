@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="pickadate/themes/default.css">
     <link rel="stylesheet" href="pickadate/themes/default.date.css">
-    <link rel="stylesheet" href="/css/footable.core.min.css">
+    <link rel="stylesheet" href="css/footable.core.min.css">
     <link rel="stylesheet" href="css/style.css" charset="utf-8">
     <link rel="stylesheet" src="http://normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,9 +132,9 @@
           </tr>
         {{/if}}
         {{#if isModZero}}
-          <tr><td>Week {{position}}</td>
+          <tr><td><strong>Week {{position}}</strong></td>
         {{/if}}
-          <td><small><em>{{ date }}</em></small><br /><p><small><strong>{{ activity }}</strong></small></p></td>
+          <td><em>{{ date }}</em><br /><p>{{ activity }}</p></td>
         {{#if isLast}}
           </tr>
         {{/if}}
