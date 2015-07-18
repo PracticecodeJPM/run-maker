@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  resources :schedule, :defaults => {:format => "json"}
+  
+  namespace :api do
+    namespace :v1 do
+      resources :schedule, :defaults => {:format => "json"} do
+        get 'calendar' => 'schedule#calendar'
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

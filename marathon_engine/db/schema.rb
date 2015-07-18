@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625012622) do
+ActiveRecord::Schema.define(version: 20150703162539) do
 
   create_table "schedules", force: :cascade do |t|
     t.string   "monday"
@@ -23,7 +23,11 @@ ActiveRecord::Schema.define(version: 20150625012622) do
     t.string   "sunday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "raceday"
+    t.integer  "user_id"
   end
+
+  add_index "schedules", ["user_id"], name: "index_schedules_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
