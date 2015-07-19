@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :schedule, :defaults => {:format => "json"} do
         get 'calendar' => 'schedule#calendar'
       end
+      resources :users, :only => [:show, :create, :update, :destroy]
+      resources :sessions, :only => [:create, :destroy]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

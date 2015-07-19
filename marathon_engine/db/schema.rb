@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703162539) do
+ActiveRecord::Schema.define(version: 20150719014102) do
 
   create_table "schedules", force: :cascade do |t|
     t.string   "monday"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20150703162539) do
     t.datetime "updated_at", null: false
     t.date     "raceday"
     t.integer  "user_id"
+    t.integer  "weeks"
+    t.string   "race_type"
   end
 
   add_index "schedules", ["user_id"], name: "index_schedules_on_user_id"
@@ -43,8 +45,10 @@ ActiveRecord::Schema.define(version: 20150703162539) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "auth_token"
   end
 
+  add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true

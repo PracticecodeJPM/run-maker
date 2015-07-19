@@ -45,7 +45,11 @@ class Api::V1::ScheduleController < ApplicationController
   
   def calendar 
     user_preferences = Schedule.find(params[:schedule_id])    
-    respond_with schedule_engine(@full_marathon_program, user_preferences, 18)
+    if user_preferences.race_type == "full marathon"
+      respond_with schedule_engine(@full_marathon_program, user_preferences)
+    else
+      render :json => { :errors => "race_type not specified or not recognized" }
+    end
   end 
 
   def start_date(race_day, weeks)
@@ -53,10 +57,11 @@ class Api::V1::ScheduleController < ApplicationController
     race_day - 7 * weeks - race_day.wday
   end
 
-  def schedule_engine(training_program, user_data, weeks)
+  def schedule_engine(training_program, user_data)
     training_schedule = {};
     race_day = user_data.raceday
-    start_date = start_date(race_day, weeks)
+    p user_data.weeks
+    start_date = start_date(race_day, user_data.weeks)
     (start_date..race_day).each_with_index do |day, i|
       date_string = day.strftime('%x')
       if day == race_day

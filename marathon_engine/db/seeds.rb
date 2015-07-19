@@ -14,6 +14,9 @@ def random_date_in_year(year)
     rand(Date.civil(year, 1, 1)..Date.civil(year, 12, 31))
 end
 
+user = User.create! :username => "jdollabillz", :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+user = User.create! :username => "Smackyoface123", :email => 'jmoney@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+
 100.times do |i|
   Schedule.create(monday: run_options.sample,
                   tuesday: run_options.sample,
@@ -22,6 +25,8 @@ end
                   friday: run_options.sample,
                   saturday: run_options.sample,
                   sunday: run_options.sample,
-                  raceday: random_date_in_year(2016)
+                  raceday: random_date_in_year(2016),
+                  weeks: 18,
+                  race_type: "full marathon"
                  )
 end
