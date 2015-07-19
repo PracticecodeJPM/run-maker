@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :auth_token, uniqueness: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :schedules
+  has_many :schedules, dependent: :destroy
 
   before_create :generate_authentication_token!
 

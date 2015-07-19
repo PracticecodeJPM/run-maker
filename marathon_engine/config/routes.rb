@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       resources :schedule, :defaults => {:format => "json"} do
         get 'calendar' => 'schedule#calendar'
       end
-      resources :users, :only => [:show, :create, :update, :destroy]
+      resources :users, :only => [:show, :create, :update, :destroy], :defaults => {:format => "json"} do
+        resources :schedule, :defaults => {:format => "json"} do
+          get 'calendar' => 'schedule#calendar'
+        end
+      end
       resources :sessions, :only => [:create, :destroy]
     end
   end

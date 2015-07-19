@@ -27,6 +27,7 @@ user = User.create! :username => "Smackyoface123", :email => 'jmoney@gmail.com',
                   sunday: run_options.sample,
                   raceday: random_date_in_year(2016),
                   weeks: 18,
-                  race_type: "full marathon"
+                  race_type: "full marathon",
+                  user_id: [1, 2].sample
                  )
 end
